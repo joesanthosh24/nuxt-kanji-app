@@ -1,20 +1,37 @@
 <template>
   <div class="character">
     <h1 class="character__title">{{$route.params.character}}</h1>
+    <character-data :heisig="heisig_en" :on="on_readings" :kun="kun_readings"></character-data>
   </div>
 </template>
 
 <script>
+import CharacterData from "../../../components/character-data/CharacterData";
+
 export default {
   asyncData({ params: { character }, $axios }) {
-    return $axios.$get(`/kanji/${character}`).then(data => {
+    const decodedChar = decodeURI(character);
+    return $axios.$get(`/kanji/${decodedChar}`).then(data => {
+      const {
+        grade,
+        heisig_en,
+        kun_readings,
+        jlpt,
+        on_readings,
+        stroke_count
+      } = data;
       return {
-        data
+        grade,
+        heisig_en,
+        kun_readings,
+        jlpt,
+        on_readings,
+        stroke_count
       };
     });
   },
-  created() {
-    console.log(this.data);
+  components: {
+    characterData: CharacterData
   }
 };
 </script>
