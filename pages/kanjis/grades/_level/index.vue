@@ -17,7 +17,7 @@
           <b-button variant="primary">Add To Study</b-button>
         </template>
         <b-card-title>
-          <h3 @click="$router.push(`/kanjis/${kanji}`)" class="kanji-picture">{{kanji}}</h3>
+          <h3 @click="$router.push(`/kanjis/grades/${$route.params.level}/${index}`)" class="kanji-picture">{{kanji}}</h3>
         </b-card-title>
       </b-card>
     </div>

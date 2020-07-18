@@ -1,24 +1,29 @@
 <template>
   <div class="character">
-    <h1 class="character__title">{{$route.params.character}}</h1>
+    <h1 class="character__title">{{kanji}}</h1>
     <character-data :heisig="heisig_en" :on="on_readings" :kun="kun_readings"></character-data>
   </div>
 </template>
 
 <script>
-import CharacterData from "../../../components/character-data/CharacterData";
+// import CharacterData from "../../../../../components/character-data/CharacterData";
+import CharacterData from "~/components/character-data/CharacterData";
 
 export default {
-  asyncData({ params: { character }, $axios }) {
-    const decodedChar = decodeURI(character);
-    return $axios.$get(`/kanji/${decodedChar}`).then(data => {
+  asyncData({ params: { num, level }, $axios, store }) {
+    const kanji = store.state.kanjis.kanjis[level][num];
+    const encodedKanji = encodeURI(kanji);
+    console.log(kanji);
+    console.log(encodedKanji);
+    return $axios.$get(`/kanji/${encodedKanji}`).then(data => {
+      console.log(data);
       const {
         grade,
         heisig_en,
         kun_readings,
         jlpt,
         on_readings,
-        stroke_count
+        stroke_count,
       } = data;
       return {
         grade,
@@ -26,7 +31,8 @@ export default {
         kun_readings,
         jlpt,
         on_readings,
-        stroke_count
+        stroke_count,
+        kanji
       };
     });
   },

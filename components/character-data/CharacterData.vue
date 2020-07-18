@@ -4,32 +4,14 @@
       <span class="pull-left">Meaning:</span>
       <span class="character__dataHeisig">{{heisig}}</span>
     </div>
-    <div class="d-block p-2 bg-default text-primary text-uppercase ml-3 mr-3 mb-4">
-      Kun Readings:
-      <span
-        :class="index === 0 ? 'character__dataHeisig' : ''"
-        v-for="(reading, index) in kun"
-        :key="reading"
-      >
-        {{reading}}
-        <span class="mr-2" v-show="index < kun.length - 1 && kun.length > 1">,</span>
-      </span>
-    </div>
-    <div class="d-block p-2 bg-default text-primary text-uppercase ml-3 mr-3 mb-4">
-      Kun Readings:
-      <span
-        :class="index === 0 ? 'character__dataHeisig' : ''"
-        v-for="(reading, index) in on"
-        :key="reading"
-      >
-        {{reading}}
-        <span class="mr-2" v-show="index < on.length - 1 && on.length > 1">,</span>
-      </span>
-    </div>
+    <readings :readings="kun" readingType="Kun" />
+    <readings :readings="on" readingType="On" />
   </div>
 </template>
 
 <script>
+import Readings from "@/components/readings/Readings";
+
 export default {
   props: {
     heisig: {
@@ -44,12 +26,12 @@ export default {
       type: Array,
       required: true
     }
+  },
+  components: {
+    readings: Readings
   }
 };
 </script>
 
 <style scoped>
-.character__dataHeisig {
-  margin-left: 50px;
-}
 </style>
