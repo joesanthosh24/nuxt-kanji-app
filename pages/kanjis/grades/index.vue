@@ -1,20 +1,4 @@
 <template>
-  <!-- <b-card-group deck>
-    <b-card
-      v-for="grade in grades"
-      :key="grade"
-      img-src="https://ih1.redbubble.net/image.86481084.7993/raf,750x1000,075,t,000000:44f0b734a5.jpg"
-      img-alt="Samurai Kanji"
-      img-left
-      img-height="100"
-      img-width="100"
-      class="mb-3 mr-3 ml-3"
-      @click="$router.push(`/kanjis/grades/${grade}`)"
-    >
-      <b-card-text text-tag="h3">Grade {{grade}} Kanji</b-card-text>
-      <b-card-sub-title>View all the Kanji taught in Grade {{grade}}</b-card-sub-title>
-    </b-card>
-  </b-card-group>-->
   <div class="grades">
     <b-card-group deck>
       <b-row>

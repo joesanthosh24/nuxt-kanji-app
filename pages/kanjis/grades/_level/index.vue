@@ -4,9 +4,6 @@
       <h1 class="main-text">Grade {{$route.params.level}} Kanji</h1>
       <p>Amount: {{kanjis.length}} Kanji</p>
     </div>
-    <!-- <ul>
-      <li v-for="kanji in kanjis" :key="kanji">{{kanji}}</li>
-    </ul>-->
     <div class="kanjis">
       <b-card
         header-tag="header"
@@ -20,9 +17,7 @@
           <b-button variant="primary">Add To Study</b-button>
         </template>
         <b-card-title>
-          <h3 @click="$router.push(`/kanjis/${kanji}`)" class="kanji-picture">
-            {{kanji}}
-          </h3>
+          <h3 @click="$router.push(`/kanjis/${kanji}`)" class="kanji-picture">{{kanji}}</h3>
         </b-card-title>
       </b-card>
     </div>
@@ -31,12 +26,10 @@
 
 <script>
 export default {
-  asyncData({ $axios, params }) {
-    return $axios.$get(`/kanji/grade-${params.level}`).then(data => {
-      return {
-        kanjis: data
-      };
-    });
+  data() {
+    return {
+      kanjis: this.$store.state.kanjis.kanjis[this.$route.params.level]
+    };
   }
 };
 </script>
