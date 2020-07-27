@@ -2,11 +2,11 @@
   <div class="character">
     <h1 class="character__title">{{kanji}}</h1>
     <character-data :heisig="heisig_en" :on="on_readings" :kun="kun_readings"></character-data>
+    <b-button variant="primary">Add To Study</b-button>
   </div>
 </template>
 
 <script>
-// import CharacterData from "../../../../../components/character-data/CharacterData";
 import CharacterData from "~/components/character-data/CharacterData";
 
 export default {

@@ -54,5 +54,10 @@ export default {
 .kanji-picture {
   font-weight: bold;
   font-size: 50px;
+  transition: all .75s ease-in;
+}
+.kanji-picture:hover {
+  transform: scale(1.8);
+  color: blue;
 }
 </style>

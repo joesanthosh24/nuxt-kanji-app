@@ -9,8 +9,8 @@
       </nuxt-link>
       <b-navbar-nav class="ml-auto">
         <drop-down-links :items="grades" :itemsHeader="'Grade'"></drop-down-links>
-        <b-nav-item>Log In</b-nav-item>
-        <b-nav-item>Sign Up</b-nav-item>
+        <b-nav-item @click="$router.push('/login')">Log In</b-nav-item>
+        <b-nav-item @click="$router.push('/signup')">Sign Up</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
     <div class="spacing"></div>
