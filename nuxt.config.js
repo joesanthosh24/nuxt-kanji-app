@@ -39,6 +39,23 @@ export default {
     // Doc: https://bootstrap-vue.js.org/docs/
     "bootstrap-vue/nuxt",
     "@nuxtjs/axios",
+    [
+      "@nuxtjs/firebase",
+      {
+        config: {
+          apiKey: "AIzaSyCaw5_29jdZHspxDuwZ_zOB4Kg2YyX4ZcQ",
+          authDomain: "kanji-app-edee4.firebaseapp.com",
+          databaseURL: "https://kanji-app-edee4.firebaseio.com",
+          projectId: "kanji-app-edee4",
+          storageBucket: "kanji-app-edee4.appspot.com",
+          messagingSenderId: "382303153937",
+          appId: "1:382303153937:web:f756a3e9f24b84b6a166b0"
+        },
+        services: {
+          auth: true
+        }
+      }
+    ]
   ],
   axios: {
     baseURL: "https://kanjiapi.dev/v1/",

@@ -30,6 +30,16 @@ export default {
   data() {
     return { email: "", password: "", username: "", birthday: "" };
   },
+  methods: {
+    submitForm() {
+      console.log(email.value);
+      this.$fireAuth.createUserWithEmailAndPassword(email.value, password.value)
+        .then(auth => {
+          console.log(auth);
+        })
+        .catch(err => console.log(err))
+    }
+  }
 };
 </script>
 
